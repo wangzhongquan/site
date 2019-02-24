@@ -35,12 +35,16 @@ module.exports = {
 			{
 				test:/\.(css|less)$/,
 				use:[
-					{loader:'style-loader'}, 
-					{loader:MiniCssExtractPlugin.loader},
+					{loader:'style-loader'},
+				//	{loader:MiniCssExtractPlugin.loader},
 					{loader:'css-loader'},
 					'less-loader'
 				]
 			},
+            {
+                test: /\.(woff|svg|eot|ttf)\??.*$/,
+                loader: 'url-loader'
+            },
 			{
 				test:/\.(png|jpg)$/,
 				use:[

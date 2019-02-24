@@ -1,14 +1,16 @@
 <template>
-    <RouterDemo />
+    <Page />
 </template>
 <script>
-    import Curd from './component/curd/index.vue'  //这个是增/删示例，未使用vuex
-    import VuexDemo from './component/vuex-demo/index.vue' //这个是使用vuex示例
-    import RouterDemo from './component/router-demo/index.vue' //这个是使用vuex示例
+    import store from './store/index'
+    import Page from './component/index.vue'
     export default {
-		name:"App",
+        store,
+        created:()=>{
+            store.dispatch("initData");
+        },
         components:{
-            RouterDemo //添加-删除行
+            Page
 		}
 	}
 </script>
