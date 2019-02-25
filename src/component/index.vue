@@ -3,10 +3,10 @@
         <el-container>
             <el-header>
                 <el-row >
-                    <el-button  plain  :disabled="Boolean(getStatus =='all')" @click="changeItem('all')" >
-                        全部
+                    <el-button   :type="Boolean(getStatus =='all')? 'info':''"  @click="changeItem('all')" >
+                        全部 
                     </el-button>
-                    <el-button :key='item.id' v-for="item in getData" plain  :disabled="Boolean(getStatus ==item.id)" @click="changeItem(item)" >
+                    <el-button :key='item.id' v-for="item in getData"    :type="Boolean(getStatus ==item.id)? 'info':''" @click="changeItem(item)" >
                         {{item.category_name}}
                     </el-button>
                 </el-row>
@@ -90,5 +90,8 @@
         margin-bottom: 40px;
     }
 
+.activeBtn{
+
+}
 
 </style>

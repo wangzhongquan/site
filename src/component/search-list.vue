@@ -40,8 +40,7 @@
                 return '-';
             },
             getPagination(){
-                const { page_index, page_size, total_count } = this.$store.state.moduleMain;
-                console.log("-----------", page_index)
+                const { page_index, page_size, total_count } = this.$store.state.moduleMain;                
                 return this.$store.state.moduleMain
             },
             getList(){

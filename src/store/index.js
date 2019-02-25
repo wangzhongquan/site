@@ -197,7 +197,6 @@ const store =  new Vuex.Store({
                 commit("SET_MENU", {total, data})
                 getAll(data, (params)=>{
                     commit("SET_PANEL", {params})
-                   // console.log(params)
                 });
             },(r)=>{
                 console.log(r)

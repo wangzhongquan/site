@@ -17,8 +17,10 @@
     export default {
         props:["data"],
         methods:{
-            goToDetail(obj){
-                this.$store.dispatch('toggleDetail',{toggle:true, current:{id:obj.id}})
+            goToDetail(obj){			
+				let key_id = this.data.id
+				this.$store.dispatch("changeStatue", {id:key_id})
+				this.$store.dispatch('toggleDetail',{toggle:true, current:{id:obj.id}})
             },
             changeItem(item){
                 this.$store.dispatch("changeStatue", {id:item.id})
