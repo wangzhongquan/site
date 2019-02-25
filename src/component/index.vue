@@ -4,10 +4,10 @@
             <el-header>
                 <el-row >
                     <el-button  plain  :disabled="Boolean(getStatus =='all')" @click="changeItem('all')" >
-                        全部({{getTotal}})
+                        全部
                     </el-button>
                     <el-button :key='item.id' v-for="item in getData" plain  :disabled="Boolean(getStatus ==item.id)" @click="changeItem(item)" >
-                        {{item.category_name}}({{item.count}})
+                        {{item.category_name}}
                     </el-button>
                 </el-row>
             </el-header>
