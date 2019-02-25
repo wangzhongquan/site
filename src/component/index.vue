@@ -6,7 +6,7 @@
                     <el-button  plain  :disabled="Boolean(getStatus =='all')" @click="changeItem('all')" >
                         全部({{getTotal}})
                     </el-button>
-                    <el-button v-for="item in getData" plain  :disabled="Boolean(getStatus ==item.id)" @click="changeItem(item)" >
+                    <el-button :key='item.id' v-for="item in getData" plain  :disabled="Boolean(getStatus ==item.id)" @click="changeItem(item)" >
                         {{item.category_name}}({{item.count}})
                     </el-button>
                 </el-row>
