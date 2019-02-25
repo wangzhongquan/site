@@ -18,6 +18,9 @@
     export default {
         components:{
             Left, Right
+        },
+        destroyed(){
+            this.$store.dispatch("moduleDetail/clean")
         }
     }
 </script>

@@ -119,6 +119,10 @@ const moduleDetail  = {
                 });
                 state.currentKey = id;
             }
+        },
+        CLEAN_KEYS(state){
+            state.currentKey = undefined,
+            state.tree = []
         }
     },
     actions:{
@@ -141,6 +145,9 @@ const moduleDetail  = {
             const { id } = args;
             commit("SET_KEYS", { id})
         },
+        clean({commit}, args={}){
+            commit("CLEAN_KEYS", { currentKey:null})
+        }
     },
     namespaced:true
 }
