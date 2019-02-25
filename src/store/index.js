@@ -6,7 +6,6 @@ import { initData, search, getDetailData, getAll } from './util'
 const transformStruct = (data)=>{
     if(data &&　data.chapters && data.chapters.length > 0 ){
         const { chapters, ...other } = data;
-        console.log(data)
         let contents = {}
         let tree = [];
         chapters.map(item=>{
@@ -78,7 +77,6 @@ const moduleMain = {
                 if(selectType == 1) delete params.mandatory
                 search(params).then(({data})=>{
                     data = data.data;
-                    console.log(data);
                     if(typeof data=='object'){
                         commit({type:"UPDATE_LIST", ...data})
                     }
@@ -104,6 +102,7 @@ const moduleDetail  = {
             state.contents  = opt.contents,
             state.tree  = opt.tree,
             state.current  = opt.current;
+			
         },
         SET_KEYS(state, opt = {}){
             const { id } = opt;
@@ -138,6 +137,12 @@ const moduleDetail  = {
                     }else {
                         commit("SET_DETAIL", { ...result, current, tree:[] })
                     }
+					setTimeout(()=>{
+						if(result.tree && result.tree[0] && result.tree[0].id){
+							commit("SET_KEYS", { id: result.tree[0].id})	
+						}
+					}, 80);
+					
                 });
             }
         },
@@ -148,6 +153,8 @@ const moduleDetail  = {
         clean({commit}, args={}){
             commit("CLEAN_KEYS", { currentKey:null})
         }
+		//	
+		
     },
     namespaced:true
 }
